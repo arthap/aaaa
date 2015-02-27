@@ -16,8 +16,7 @@
 	<link href="themes/css/base.css" rel="stylesheet" type="text/css">
 	<style type="text/css" id="enject"></style>
 </head>
-<body> <a href="about.html">About project</a>
-	<a href="about.html">Page Elements</a>
+<body>
 <section id="headerSection">
 	<div class="container">
 		<div class="navbar">
@@ -56,7 +55,66 @@
 	<div id="myCarousel" class="carousel slide">
 	
 	
+<script type="text/javascript">
+var c=0;
+var t;
+var timer_is_on=0;
 
+function timedCount()
+{
+document.getElementById('txt').value=c;
+c=c+1;
+t=setTimeout("timedCount()",1000);
+}
+
+function doTimer()
+{
+if (!timer_is_on)
+  {
+  timer_is_on=1;
+  timedCount();
+  }
+}
+
+
+
+ 
+
+
+function simple_timer(sec, block, direction) {
+    var time    = sec;
+    direction   = direction || false;
+             
+    var hour    = parseInt(time / 3600);
+    if ( hour < 1 ) hour = 0;
+    time = parseInt(time - hour * 3600);
+    if ( hour < 10 ) hour = '0'+hour;
+ 
+    var minutes = parseInt(time / 60);
+    if ( minutes < 1 ) minutes = 0;
+    time = parseInt(time - minutes * 60);
+    if ( minutes < 10 ) minutes = '0'+minutes;
+ 
+    var seconds = time;
+    if ( seconds < 10 ) seconds = '0'+seconds;
+ 
+    block.innerHTML = hour+':'+minutes+':'+seconds;
+ 
+    if ( direction ) {
+        sec++;
+ 
+        setTimeout(function(){ simple_timer(sec, block, direction); }, 1000);
+    } else {
+        sec--;
+ 
+        if ( sec > 0 ) {
+            setTimeout(function(){ simple_timer(sec, block, direction); }, 1000);
+        } else {
+            alert('Время вышло!');
+        }
+    }
+}
+</script>
 
 <form>
 
@@ -446,25 +504,6 @@ function start_timer() {
     <script src="themes/js/bootstrap-popover.js"></script>
 	<script src="themes/js/business_ltd_1.0.js"></script>
  
-
-	
-	<script type="text/javascript">
-
-
-$(document).ready(function(){
-//$('.center-block tr:odd').addClass(tr_my_style);
-
-var tex = $('#footerSection_h4').text();
-alert(tex);
-                           $('.center-block tr:odd').css("border-color ","3px solid red");
-
-});// end redy
-</script>
-
-
-
-
-
 <!-- Themes switcher section ============================================================================================= -->
 <div id="secectionBox">
 <link rel="stylesheet" href="themes/switch/themeswitch.css" type="text/css" media="screen" />
